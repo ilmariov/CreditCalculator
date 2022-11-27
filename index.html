@@ -6,15 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit Calculator</title>
     <link rel="stylesheet" href="/css/main.css">
-    <script src="app.js
-    "></script>
+    <script src="app.js"></script>
 </head>
 <body>
     <div>
-        <form action="">
-            <input type="number" name="loan-amount" id="loan-amount" placeholder="$100000" min="1000000" step="100000">
+        <form action="/components/amortization.html">
+            <label for="loan-amount">Loan Amount
+                <input type="number" name="loan-amount" id="loan-amount" placeholder="$100000" min="1000000" step="100000">
+            </label>
+            <fieldset>
+                <legend>Loan Term</legend>
+                <label for="years">
+                    <input type="radio" name="period" id="years" value="years" checked>Years                
+                </label>
+                <label for="months">
+                    <input type="radio" name="period" id="months" value="months">Months
+                </label>
+                <br>
+                <label for="loan-term">
+                    <input type="number" name="loan-term" id="loan-term">
+                </label>
+            </fieldset>
+            <label for="interest">Interest Rate
+                <input type="number" name="interest" id="interest">
+            </label>
+            <input type="submit" id="calculate" value="Calculate">
             
-            <input type="submit" id="submit" value="Calculate">
         </form>
     </div>
 </body>
