@@ -1,3 +1,7 @@
+body {
+    color: rgb(46, 119, 255);
+}
+
 div.data-box {
     display: flex;
     margin: 0 auto;
@@ -8,17 +12,12 @@ div.data-box {
 }
 
 h1 {
-    color: rgb(46, 119, 255);
     margin: 3% auto;
     text-align: center;
 }
 
 form {
     margin: 0 auto;
-}
-
-label, legend {
-    color: rgb(46, 119, 255);
 }
 
 label span {
@@ -70,6 +69,5 @@ input.entry {
 }
 
 .radio {
-    color: blueviolet;
     margin-left: 10px;
 }
