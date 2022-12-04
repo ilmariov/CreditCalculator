@@ -6,32 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit Calculator</title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
-    <h1>Credit Calculator</h1>
-    <div class="data-box">
-        <form action="">
-            <label class="bold" for="loan-amount">Loan Amount
-                <input class="entry" type="number" name="loan-amount" id="loan-amount" placeholder="$100000" min="1000000" step="100000">
-            </label>
-            <div class="period">
-                <label class="bold">Loan Term
-                    <input class="entry" type="number" name="loan-term" id="loan-term">
-                    <label class="radio" for="years">
-                        <input type="radio" name="period" id="years" value="years" checked>Years                
-                    </label>
-                    <label class="radio" for="months">
-                        <input type="radio" name="period" id="months" value="months">Months
-                    </label>
-                </label>
+    <h1 class="text-dark">CREDIT CALCULATOR</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-sm-6 border border-dark rounded-lg calculator">
+                <form action="">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Loan Amount</span>
+                            <span class="input-group-text">$</span>
+                        </div>
+                        <input class="form-control" type="number" name="amount" id="amount" placeholder="100000" min="1000000" step="100000">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Loan Term</span>
+                        </div>
+                        <input class="form-control" type="number" name="term" id="term">
+                        <select name="term-period" id="term-period">
+                            <option value="months">Months</option>
+                            <option value="years">Years</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Interest Rate</span>
+                        </div>
+                        <input class="form-control" type="number" name="rate" id="rate" placeholder="0.00" step="0.01">                        
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                        <select name="int-type" id="int-type">
+                            <option value="em">Effective Monthly</option>
+                            <option value="ea">Effective Annual</option>
+                            <option value="nm">Nominal Monthly</option>
+                            <option value="na">Nominal Annual</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-dark" id="btn">Calculate</button>
+                </form>
             </div>
-            <label class="bold" for="interest">Interest Rate
-                <input class="entry" type="number" name="interest" id="interest" placeholder="0.00" step="0.01"> <span> % NMV </span>
-            </label>
-            <input type="submit" id="calculate" value="Calculate">
-            
-        </form>
+            <div class="col"></div>
+        </div>
     </div>
 </body>
 </html>
