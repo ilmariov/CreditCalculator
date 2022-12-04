@@ -1,73 +1,12 @@
-body {
-    color: rgb(46, 119, 255);
-}
-
-div.data-box {
-    display: flex;
-    margin: 0 auto;
-    max-width: 500px;
-    padding: 20px;
-    border: 1px rgb(46, 119, 255) solid ;
-    border-radius: 10px;
-}
-
-h1 {
-    margin: 3% auto;
+h1.text-dark {
     text-align: center;
+    margin: 40px auto;
 }
 
-form {
-    margin: 0 auto;
+select {
+    color: #555;
 }
 
-label span {
-    font-size: smaller;
-    font-weight: normal;
-}
-
-label input, #loan-term {
-    color: brown;
-}
-
-label.radio {
-    font-weight: normal;
-}
-
-input.entry {
-    width: 120px;
-}
-
-#loan-amount {    
-    margin:10px 0 15px 20px;
-}
-
-.period {
-    margin: 10px 0;
-}
-
-#loan-term {
-    margin-left: 20px;
-}
-
-#interest {
-    margin: 15px 0 10px 20px;
-}
-
-#calculate {
-    margin: 5px auto;
-    display: block;
-    width: 200px;
-    height: 30px;
-    background-color: rgb(46, 119, 255);
-    font-weight: bold;
-    color: whitesmoke;
-    border-radius: 8px;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.radio {
-    margin-left: 10px;
+div.calculator {
+    padding: 20px;
 }
