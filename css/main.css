@@ -1,4 +1,8 @@
-h1.text-dark {
+body.thebody {
+    background-color: darkolivegreen;
+}
+
+h1.text-warning {
     text-align: center;
     margin: 40px auto;
 }
@@ -9,4 +13,13 @@ select {
 
 div.calculator {
     padding: 20px;
+}
+
+p#meme {
+    text-align: right;
+    color: aliceblue;
+}
+
+p#meme > a {
+    color: #ffcc00;
 }
