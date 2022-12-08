@@ -23,3 +23,8 @@ p#meme {
 p#meme > a {
     color: #ffcc00;
 }
+
+#fee {
+    color: #ffcc00;
+    text-align: center;
+}
