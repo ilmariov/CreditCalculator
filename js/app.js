@@ -28,20 +28,13 @@ const initApp = () => {
     const calcForm = document.getElementById("calcForm");
     calcForm.addEventListener("submit", (event) => {
         event.preventDefault();
+
         const value = getValues();
         const term = paymentPeriod(value.n, value.period);
         const iRate = interest(value.i, value.type);
         const toPay = monthlyPay(value.principal, term, iRate);
+        
         const div = document.getElementById("fee");
-        console.log(value.principal);
-        console.log(value.n);
-        console.log(value.period);
-        console.log(value.i);
-        console.log(value.type);
-        console.log(term);
-        console.log(iRate);
-        console.log(toPay);
         div.innerHTML = "<h3>Monthly payment = " + Math.trunc(toPay) + "</h3>";
     })
 }
-
