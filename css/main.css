@@ -28,3 +28,8 @@ p#meme > a {
     color: #ffcc00;
     text-align: center;
 }
+
+#switch-lang {
+    color: darkred;
+    font-weight: bold;
+}
