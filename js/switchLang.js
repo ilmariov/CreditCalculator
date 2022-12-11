@@ -2,6 +2,7 @@ document.addEventListener("readystatechange", (event) => {
     if (event.target.readyState === "complete") {
         console.log("readyState: complete");
         switchLang();
+        meme();
     }
 })
 
@@ -46,5 +47,15 @@ const switchLang = () => {
             typeLabel3.textContent = 'Nominal Compounded Monthly';
             button.textContent = 'Calculate';
         }        
+    })
+}
+
+const meme = () => {
+    const memeImg = document.getElementById("meme-link");
+    memeImg.addEventListener("click", (event) => {
+        const divmeme = document.getElementById("meme-container");        
+        divmeme.innerHTML = '<div id="meme-img"><img src="/img/homer-borrowing.jpeg" width="100%" height="100%"/></div>';
+        divmeme.classList.toggle('show-meme');
+        divmeme.classList.toggle('hide-meme');        
     })
 }
