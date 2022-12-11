@@ -33,3 +33,21 @@ p#meme > a {
     color: darkred;
     font-weight: bold;
 }
+
+#meme-img {
+    z-index: 1;
+    position: absolute;
+    top: 26%;
+    left: 26%;
+    width: 48%;
+    height: 74%;
+    border: 5px solid #ffcc00;
+}
+
+.show-meme {
+    display: block;
+}
+
+.hide-meme {
+    display: none;
+}
