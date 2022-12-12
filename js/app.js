@@ -35,6 +35,6 @@ const initApp = () => {
         const toPay = monthlyPay(value.principal, term, iRate);
         
         const div = document.getElementById("fee");
-        div.innerHTML = "<h3>Monthly payment = " + Math.trunc(toPay) + "</h3>";
+        div.innerHTML = "<h3>Monthly payment = $ " + toPay.toFixed(2) + "</h3>";
     })
 }
