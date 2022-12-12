@@ -24,7 +24,7 @@ const switchLang = () => {
         const language = event.target.textContent;
         if (language.includes('español')) {
             event.target.innerHTML = 'Switch to english <img id="flag-icon" src="/img/uk.png" alt="flag" style="width:30px;">';
-            title.textContent = 'Calculadora De Créditos';
+            title.textContent = 'CALCULADOR DE CRÉDITOS';
             pLabel.textContent = 'Monto del préstamo';
             nLabel.textContent = 'Plazo';
             termLabel1.textContent = 'Meses';
@@ -36,7 +36,7 @@ const switchLang = () => {
             button.textContent = 'Calcular';
         } else {
             event.target.innerHTML = 'Cambiar a español <img id="flag-icon" src="/img/spain.png" alt="flag" style="width:30px;">';
-            title.textContent = 'Credit Calculator';
+            title.textContent = 'CREDIT CALCULATOR';
             pLabel.textContent = 'Loan Amount';
             nLabel.textContent = 'Loan Term';
             termLabel1.textContent = 'Months';
@@ -54,7 +54,7 @@ const meme = () => {
     const memeImg = document.getElementById("meme-link");
     memeImg.addEventListener("click", (event) => {
         const divmeme = document.getElementById("meme-container");        
-        divmeme.innerHTML = '<div id="meme-img"><img src="/img/homer-borrowing.jpeg" width="100%" height="100%"/></div>';
+        divmeme.innerHTML = '<div id="meme-img"><img src="/img/homer-borrowing.jpeg" width="100%" height="100%" style="border-radius:10px"/></div>';
         divmeme.classList.toggle('show-meme');
         divmeme.classList.toggle('hide-meme');        
     })
