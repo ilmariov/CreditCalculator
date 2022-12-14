@@ -32,6 +32,7 @@ p#meme > a {
 #switch-lang {
     color: darkred;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .amortz-link {
@@ -40,20 +41,21 @@ p#meme > a {
 }
 
 #meme-img {
+    display: block;
     z-index: 1;
     position: absolute;
     top: 15%;
     left: 26%;
     width: 48%;
     height: 82%;
-    border: 5px solid #ffcc00;
+    border: 7px solid darkred;
     border-radius: 15px;
-}
-
-.show-meme {
-    display: block;
 }
 
 .hide-meme {
     display: none;
+}
+
+#meme-link {
+    cursor: pointer;
 }
