@@ -45,6 +45,7 @@ const amtzTable = () => {
         initBalance = endBalance;
     } while (endBalance > 0);
     console.log(endBalanceArr);
+    return {initBalanceArr, interestArr, principalArr, endBalanceArr}
 }
 
 document.addEventListener("readystatechange", (event) => {
