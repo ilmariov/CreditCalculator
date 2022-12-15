@@ -24,7 +24,7 @@ const switchLang = () => {
         const language = event.target.textContent;
         if (language.includes('español')) {
             event.target.innerHTML = 'Switch to english <img id="flag-icon" src="/img/uk.png" alt="uk-flag" style="width:30px;">';
-            title.textContent = 'CALCULADOR DE CRÉDITOS';
+            title.textContent = 'CALCULADORA DE CRÉDITOS';
             pLabel.textContent = 'Monto del préstamo';
             nLabel.textContent = 'Plazo';
             termLabel1.textContent = 'Meses';
