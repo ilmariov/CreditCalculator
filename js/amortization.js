@@ -20,7 +20,7 @@ const getData = () => {
     return{initBalance: amount, int: iRate, fee: toPay}
 }
 
-const amtzTable = () => {
+const amtzData = () => {
     const initBalanceArr = [];
     const interestArr = [];
     const principalArr = [];
@@ -43,9 +43,73 @@ const amtzTable = () => {
         }
         endBalanceArr.push(endBalance);
         initBalance = endBalance;
-    } while (endBalance > 0);
-    console.log(endBalanceArr);
-    return {initBalanceArr, interestArr, principalArr, endBalanceArr}
+    } while (endBalance > 0);    
+    return {init: initBalanceArr, i: interestArr, p: principalArr, end: endBalanceArr}
+}
+
+const amtzTable = () => {
+    const tableDiv = document.getElementById('table-div');
+    const thead_string = `
+        <table class="table table-warning table-hover">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Initial Balance</th>
+                    <th>Interest</th>
+                    <th>Principal</th>
+                    <th>End Balance</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    const tbody_str = tableDataString();
+    tableDiv.innerHTML = thead_string + tbody_str;
+}
+
+function editNum(num) {
+    if (1000 <= num & num < 1000000) {
+        let decimals1 = num.toString().split('.')[1];
+        const num2a = Number(num.toString().split('.')[0]) / 1000;
+        const thousands1 = num2a.toFixed(3).toString().split('.')[1];
+        return Math.trunc(num2a).toString() + ',' + thousands1 + '.' + decimals1;
+    } else if (1000000 <= num & num < 1000000000) {
+        let decimals2 = num.toString().split('.')[1];
+        const num2b = Number(num.toString().split('.')[0]) / 1000;
+        const thousands2 = num2b.toFixed(3).toString().split('.')[1];
+        const num3 = Number(num2b.toFixed(3).toString().split('.')[0]) / 1000;
+        const milliar = num3.toFixed(3).toString().split('.')[1];
+        return Math.trunc(num3).toString() + ',' + milliar + ',' + thousands2 + '.' + decimals2;
+    } else if (1000000000 <= num & num < 1000000000000) {
+        let decimals3 = num.toString().split('.')[1];
+        const num2c = Number(num.toString().split('.')[0]) / 1000;
+        const thousands3 = num2c.toFixed(3).toString().split('.')[1];
+        const num3b = Number(num2c.toFixed(3).toString().split('.')[0]) / 1000;
+        const milliar2 = num3b.toFixed(3).toString().split('.')[1];
+        const num4 = Number(num3b.toFixed(3).toString().split('.')[0]) / 1000;
+        const milliard = num4.toFixed(3).toString().split('.')[1];
+        return Math.trunc(num4).toString() + ',' + milliard + ',' + milliar2 + ',' + thousands3 + '.' + decimals3;
+    } else {
+        return num;
+    }
+}
+
+function tableDataString() {
+    const data_table = amtzData();
+    let tbody_string = '';
+    for (let i=0; i<data_table.i.length; i++){
+        let tr_string = `
+            <tr>
+                <td>`+ (i+1) +`</td>
+                <td>`+ editNum(data_table.init[i].toFixed(2)) +`</td>
+                <td>`+ editNum(data_table.i[i].toFixed(2)) +`</td>
+                <td>`+ editNum(data_table.p[i].toFixed(2)) +`</td>
+                <td>`+ editNum(data_table.end[i].toFixed(2)) +`</td>
+            </tr>
+        `;
+        tbody_string = tbody_string + tr_string;
+    }
+    const full_tbody_str = tbody_string + '</tbody></table>';
+    return full_tbody_str;
 }
 
 document.addEventListener("readystatechange", (event) => {
