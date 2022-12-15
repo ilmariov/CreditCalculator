@@ -24,6 +24,33 @@ document.addEventListener("readystatechange", (event) => {
     }
 })
 
+function editNum(num) {
+    if (1000 <= num & num < 1000000) {
+        let decimals1 = num.toString().split('.')[1];
+        const num2a = Number(num.toString().split('.')[0]) / 1000;
+        const thousands1 = num2a.toFixed(3).toString().split('.')[1];
+        return Math.trunc(num2a).toString() + ',' + thousands1 + '.' + decimals1;
+    } else if (1000000 <= num & num < 1000000000) {
+        let decimals2 = num.toString().split('.')[1];
+        const num2b = Number(num.toString().split('.')[0]) / 1000;
+        const thousands2 = num2b.toFixed(3).toString().split('.')[1];
+        const num3a = Number(num2b.toFixed(3).toString().split('.')[0]) / 1000;
+        const milliar1 = num3a.toFixed(3).toString().split('.')[1];
+        return Math.trunc(num3a).toString() + ',' + milliar1 + ',' + thousands2 + '.' + decimals2;
+    } else if (1000000000 <= num & num < 1000000000000) {
+        let decimals3 = num.toString().split('.')[1];
+        const num2c = Number(num.toString().split('.')[0]) / 1000;
+        const thousands3 = num2c.toFixed(3).toString().split('.')[1];
+        const num3b = Number(num2c.toFixed(3).toString().split('.')[0]) / 1000;
+        const milliar2 = num3b.toFixed(3).toString().split('.')[1];
+        const num4 = Number(num3b.toFixed(3).toString().split('.')[0]) / 1000;
+        const milliard = num4.toFixed(3).toString().split('.')[1];
+        return Math.trunc(num4).toString() + ',' + milliard + ',' + milliar2 + ',' + thousands3 + '.' + decimals3;
+    } else {
+        return num;
+    }
+}
+
 const initApp = () => {
     const calcForm = document.getElementById("calcForm");
     calcForm.addEventListener("submit", (event) => {
@@ -35,6 +62,6 @@ const initApp = () => {
         const toPay = monthlyPay(value.principal, term, iRate);
         
         const div = document.getElementById("fee");
-        div.innerHTML = "<h3>Monthly payment = $ " + toPay.toFixed(2) + "</h3>";
+        div.innerHTML = "<h3>Monthly payment = $ " + editNum(toPay.toFixed(2)) + "</h3>";
     })
 }
