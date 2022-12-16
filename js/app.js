@@ -60,15 +60,20 @@ const initApp = () => {
         const term = paymentPeriod(value.n, value.period);
         const iRate = interest(value.i, value.type);
         const toPay = monthlyPay(value.principal, term, iRate);
-        
+        const amtzLink = document.getElementById('amtz-link');        
         const div = document.getElementById("fee");
         const language = document.querySelector('#btn').textContent;
         if (language.includes('Calculate')) {
+            amtzLink.innerHTML = `
+            Click to display <strong style="color: #ff8800;">Amortization Table</strong>
+            `;
             div.innerHTML = "<h3>Monthly payment = $ " + editNum(toPay.toFixed(2)) + "</h3>";
         } else {
+            amtzLink.innerHTML = `
+            Click para desplegar <strong style="color: #ff8800;">Tabla de Amortización</strong>
+            `;
             div.innerHTML = "<h3>Cuota mensual = $ " + editNum(toPay.toFixed(2)) + "</h3>";
-        }
-        
+        }        
     })
 }
 
