@@ -49,21 +49,34 @@ const amtzData = () => {
 
 const amtzTable = () => {
     const tableDiv = document.getElementById('table-div');
-    const thead_string = `
+    const table_init_tags = `
         <table class="table table-warning table-hover">
             <thead>
-                <tr>
+                <tr>`;
+    const thead_E_string = `
                     <th>Month</th>
                     <th>Initial Balance</th>
                     <th>Interest</th>
                     <th>Principal</th>
-                    <th>End Balance</th>
+                    <th>End Balance</th>`;
+    const thead_S_string = `
+                    <th>Mes</th>
+                    <th>Balance Inicial</th>
+                    <th>Interéses</th>
+                    <th>Abono a capital</th>
+                    <th>Balance final</th>`;
+    const thead_end_tags = `
                 </tr>
             </thead>
-            <tbody>
-    `;
+            <tbody>`;
     const tbody_str = tableDataString();
-    tableDiv.innerHTML = thead_string + tbody_str;
+    const language = document.querySelector('#amtz-link').textContent;
+    if (language.includes('to')) {
+        tableDiv.innerHTML = table_init_tags + thead_E_string + thead_end_tags + tbody_str;
+    } else {
+        tableDiv.innerHTML = table_init_tags + thead_S_string + thead_end_tags + tbody_str;
+    }
+    
 }
 
 function editNum(num) {
