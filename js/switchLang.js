@@ -59,7 +59,7 @@ const meme = () => {
     const memeImg = document.getElementById("meme-link");
     memeImg.addEventListener("click", (event) => {
         const divmeme = document.getElementById("meme-container");        
-        divmeme.innerHTML = '<img id="meme-img" src="/img/homer-borrowing.jpeg" width="100%" height="100%" style="border-radius:10px"/>';
+        divmeme.innerHTML = '<img id="meme-img" src="img/homer-borrowing.jpeg" width="100%" height="100%" style="border-radius:10px"/>';
         divmeme.classList.toggle('hide-meme');
     })
 }
