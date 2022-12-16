@@ -20,6 +20,7 @@ const switchLang = () => {
         const typeLabel2 = document.querySelector('#ea');
         const typeLabel3 = document.querySelector('#nm');
         const button = document.querySelector('#btn');
+        const amtz_link = document.querySelector('#amtz-link');
 
         const language = event.target.textContent;
         if (language.includes('español')) {
@@ -34,6 +35,8 @@ const switchLang = () => {
             typeLabel2.textContent = 'Efectivo anual';
             typeLabel3.textContent = 'Nominal Mes Vencido';
             button.textContent = 'Calcular';
+            document.getElementById('reset-btn').value = 'Resetear';
+            amtz_link.innerHTML = 'Click para desplegar <span style="color: #ff8800; font-weight: bold;">Tabla de Amortización</span>';
         } else {
             event.target.innerHTML = 'Cambiar a español <img id="flag-icon" src="/img/spain.png" alt="spain-flag" style="width:30px;">';
             title.textContent = 'CREDIT CALCULATOR';
@@ -46,6 +49,8 @@ const switchLang = () => {
             typeLabel2.textContent = 'Effective Annual';
             typeLabel3.textContent = 'Nominal Compounded Monthly';
             button.textContent = 'Calculate';
+            document.getElementById('reset-btn').value = 'Reset';
+            amtz_link.innerHTML = 'Click to display <span style="color: #ff8800; font-weight: bold;">Amortization Table</span>';
         }        
     })
 }
