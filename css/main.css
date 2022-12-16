@@ -38,6 +38,7 @@ p#meme > a {
 .amortz-link {
     color: #ffcc00;
     text-align: right;
+    cursor: pointer;
 }
 
 #meme-img {
@@ -58,4 +59,8 @@ p#meme > a {
 
 #meme-link {
     cursor: pointer;
+}
+
+#reset-btn {
+    float: inline-end;
 }
