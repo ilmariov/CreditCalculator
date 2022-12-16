@@ -62,6 +62,16 @@ const initApp = () => {
         const toPay = monthlyPay(value.principal, term, iRate);
         
         const div = document.getElementById("fee");
-        div.innerHTML = "<h3>Monthly payment = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+        const language = document.querySelector('#btn').textContent;
+        if (language.includes('Calculate')) {
+            div.innerHTML = "<h3>Monthly payment = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+        } else {
+            div.innerHTML = "<h3>Cuota mensual = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+        }
+        
     })
+}
+
+function resetForm() {
+    document.getElementById('calcForm').reset();
 }
