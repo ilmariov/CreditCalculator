@@ -24,7 +24,7 @@ const switchLang = () => {
 
         const language = event.target.textContent;
         if (language.includes('español')) {
-            event.target.innerHTML = 'Switch to english <img id="flag-icon" src="/img/uk.png" alt="uk-flag" style="width:30px;">';
+            event.target.innerHTML = 'Switch to english <img id="flag-icon" src="img/uk.png" alt="uk-flag" style="width:30px;">';
             title.textContent = 'CALCULADORA DE CRÉDITOS';
             pLabel.textContent = 'Monto del préstamo';
             nLabel.textContent = 'Plazo';
@@ -38,7 +38,7 @@ const switchLang = () => {
             document.getElementById('reset-btn').value = 'Resetear';
             amtz_link.innerHTML = 'Click para desplegar <span style="color: #ff8800; font-weight: bold;">Tabla de Amortización</span>';
         } else {
-            event.target.innerHTML = 'Cambiar a español <img id="flag-icon" src="/img/spain.png" alt="spain-flag" style="width:30px;">';
+            event.target.innerHTML = 'Cambiar a español <img id="flag-icon" src="img/spain.png" alt="spain-flag" style="width:30px;">';
             title.textContent = 'CREDIT CALCULATOR';
             pLabel.textContent = 'Loan Amount';
             nLabel.textContent = 'Loan Term';
