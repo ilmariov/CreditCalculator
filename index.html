@@ -47,7 +47,7 @@
                         <div class="input-group-prepend">
                             <span id="n-label" class="input-group-text">Loan Term</span>
                         </div>
-                        <input class="form-control" type="number" name="term" id="term" min="1" required>
+                        <input class="form-control" type="number" name="term" id="term" min="1" max="360" required>
                         <select name="term-period" id="term-period">
                             <option id="month" value="months">Months</option>
                             <option id="year" value="years">Years</option>
@@ -57,7 +57,7 @@
                         <div class="input-group-prepend">
                             <span id="i-label" class="input-group-text">Interest Rate</span>
                         </div>
-                        <input class="form-control" type="number" name="rate" id="rate" placeholder="0.00" min="0" step="0.01" required>                        
+                        <input class="form-control" type="number" name="rate" id="rate" placeholder="0.00" min="0" step="0.01" max="100" required>                        
                         <div class="input-group-append">
                             <span class="input-group-text">%</span>
                         </div>
