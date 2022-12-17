@@ -29,6 +29,7 @@
             </div>
         </div>
     </nav>
+    <div id="alert"></div>
     <div id="meme-container"></div>
     <div class="container-fluid">
         <div class="row" style="margin-top: 5%;">
@@ -40,13 +41,13 @@
                             <span id="p-label" class="input-group-text">Loan Amount</span>
                             <span class="input-group-text">$</span>
                         </div>
-                        <input id="amount" class="form-control" type="number" name="amount" required>
+                        <input id="amount" class="form-control" type="number" name="amount" min="100" max="9999999999999" required>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span id="n-label" class="input-group-text">Loan Term</span>
                         </div>
-                        <input class="form-control" type="number" name="term" id="term" required>
+                        <input class="form-control" type="number" name="term" id="term" min="0" required>
                         <select name="term-period" id="term-period">
                             <option id="month" value="months">Months</option>
                             <option id="year" value="years">Years</option>
@@ -56,7 +57,7 @@
                         <div class="input-group-prepend">
                             <span id="i-label" class="input-group-text">Interest Rate</span>
                         </div>
-                        <input class="form-control" type="number" name="rate" id="rate" placeholder="0.00" step="0.01" required>                        
+                        <input class="form-control" type="number" name="rate" id="rate" placeholder="0.00" min="0" step="0.01" required>                        
                         <div class="input-group-append">
                             <span class="input-group-text">%</span>
                         </div>

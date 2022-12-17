@@ -56,27 +56,67 @@ const initApp = () => {
     calcForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const value = getValues();
-        const term = paymentPeriod(value.n, value.period);
-        const iRate = interest(value.i, value.type);
-        const toPay = monthlyPay(value.principal, term, iRate);
-        const amtzLink = document.getElementById('amtz-link');        
-        const div = document.getElementById("fee");
-        const language = document.querySelector('#btn').textContent;
-        if (language.includes('Calculate')) {
-            amtzLink.innerHTML = `
-            Click to display <strong style="color: #ff8800;">Amortization Table</strong>
-            `;
-            div.innerHTML = "<h3>Monthly payment = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+        if (validator()) {
+            document.getElementById('alert').textContent = '';
+            const value = getValues();
+            const term = paymentPeriod(value.n, value.period);
+            const iRate = interest(value.i, value.type);
+            const toPay = monthlyPay(value.principal, term, iRate);
+            const amtzLink = document.getElementById('amtz-link');        
+            const div = document.getElementById("fee");
+            const submit_btn = document.querySelector('#btn');
+            if (submit_btn.textContent.includes('Calculate')) {
+                amtzLink.innerHTML = `
+                Click to display <strong style="color: #ff8800;">Amortization Table</strong>
+                `;
+                div.innerHTML = "<h3>Monthly payment = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+            } else {
+                amtzLink.innerHTML = `
+                Click para desplegar <strong style="color: #ff8800;">Tabla de Amortización</strong>
+                `;
+                div.innerHTML = "<h3>Cuota mensual = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+            }
+
         } else {
-            amtzLink.innerHTML = `
-            Click para desplegar <strong style="color: #ff8800;">Tabla de Amortización</strong>
-            `;
-            div.innerHTML = "<h3>Cuota mensual = $ " + editNum(toPay.toFixed(2)) + "</h3>";
+            const div_alert = document.getElementById('alert');
+            div_alert.innerHTML = `<div id='alert-cont' class="alert alert-danger alert-dismissible"></div>`;
+            const alertContainer = document.getElementById('alert-cont');
+            const calc_button = document.querySelector('#btn');
+            if (calc_button.textContent.includes('Calculate')) {
+                alertContainer.innerHTML = `
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Warning!</strong> Enter data within a valid range for real-purpose calculation.
+                `;
+            } else {
+                alertContainer.innerHTML = `
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Cuidado!</strong> Ingrese datos dentro de un rango válido para cálculos reales.
+                `;
+            }
+            document.getElementById('amtz-link').innerHTML = '';
+            document.getElementById('fee').textContent = '';
+            document.getElementById('table-div').innerHTML = '';
         }        
     })
 }
 
 function resetForm() {
     document.getElementById('calcForm').reset();
+    document.getElementById('amtz-link').innerHTML = '';
+    document.getElementById('fee').textContent = '';
+    document.getElementById('table-div').innerHTML = '';
+    window.location.reload();
+}
+
+const validator = () => {
+    const term = document.getElementById('term').value;
+    const rate = document.getElementById('rate').value;
+    const period = document.getElementById('term-period').value;
+    const int_type = document.getElementById('int-type').value;
+    const condition1 = (period === 'months' && term > 360) || (period === 'years' && term > 30);
+    const condition2 = (int_type === 'em' && rate > 8) || (int_type !== 'em' && rate > 100);
+    switch (condition1 || condition2) {
+        case(true): return false;
+        default: return true;
+    }
 }
