@@ -7,7 +7,6 @@ document.addEventListener("readystatechange", (event) => {
 
 const switchLang = () => {
     const navText = document.querySelector('#switch-lang');
-
     navText.addEventListener("click", (event) => {
         const title = document.querySelector('#title');
         const pLabel = document.querySelector('#p-label');
@@ -19,11 +18,7 @@ const switchLang = () => {
         const typeLabel2 = document.querySelector('#ea');
         const typeLabel3 = document.querySelector('#nm');
         const button = document.querySelector('#btn');
-
-        document.getElementById('amtz-link').innerHTML = '';
-        document.getElementById('fee').textContent = '';
-        document.getElementById('table-div').innerHTML = '';
-
+        printOff()
         const language = event.target.textContent;
         if (language.includes('español')) {
             event.target.innerHTML = 'Switch to english <img id="flag-icon" src="img/uk.png" alt="uk-flag" style="width:30px;">';
