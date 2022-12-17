@@ -2,7 +2,6 @@ document.addEventListener("readystatechange", (event) => {
     if (event.target.readyState === "complete") {
         console.log("readyState: complete");
         switchLang();
-        meme();
     }
 })
 
@@ -20,6 +19,10 @@ const switchLang = () => {
         const typeLabel2 = document.querySelector('#ea');
         const typeLabel3 = document.querySelector('#nm');
         const button = document.querySelector('#btn');
+
+        document.getElementById('amtz-link').innerHTML = '';
+        document.getElementById('fee').textContent = '';
+        document.getElementById('table-div').innerHTML = '';
 
         const language = event.target.textContent;
         if (language.includes('español')) {
@@ -53,10 +56,7 @@ const switchLang = () => {
 }
 
 const meme = () => {
-    const memeImg = document.getElementById("meme-link");
-    memeImg.addEventListener("click", (event) => {
-        const divmeme = document.getElementById("meme-container");        
-        divmeme.innerHTML = '<img id="meme-img" src="img/homer-borrowing.jpeg" width="100%" height="100%" style="border-radius:10px"/>';
-        divmeme.classList.toggle('hide-meme');
-    })
+    const divmeme = document.getElementById("meme-container");        
+    divmeme.innerHTML = '<img id="meme-img" src="img/homer-borrowing.jpeg" width="100%" height="100%" style="border-radius:10px"/>';
+    divmeme.classList.toggle('hide-meme');
 }

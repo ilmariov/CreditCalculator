@@ -17,13 +17,6 @@ const getValues = () => {
     return {principal: p, n: n, period: period, i: i, type: type}
 }
 
-document.addEventListener("readystatechange", (event) => {
-    if (event.target.readyState === "complete") {
-        console.log("readyState: complete");
-        initApp();
-    }
-})
-
 function editNum(num) {
     if (1000 <= num & num < 1000000) {
         let decimals1 = num.toString().split('.')[1];
@@ -50,6 +43,13 @@ function editNum(num) {
         return num;
     }
 }
+
+document.addEventListener("readystatechange", (event) => {
+    if (event.target.readyState === "complete") {
+        console.log("readyState: complete");
+        initApp();
+    }
+})
 
 const initApp = () => {
     const calcForm = document.getElementById("calcForm");
